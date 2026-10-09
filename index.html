@@ -75,7 +75,7 @@ async function send(){
  input.value = '';
  chat.scrollTop = chat.scrollHeight;
  chat.innerHTML += `<div id="typing" class="msg ia">LUMEN_IA écrit...</div>`;
-
+model:"openai/gpt-oss-20b",
  try{
   const res = await fetch("https://api.groq.com/openai/v1/chat/completions",{
    method:"POST",
