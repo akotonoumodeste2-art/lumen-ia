@@ -1,156 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMEN_IA V2 - BY MODESTE</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>LUMEN_IA V4 PREMIUM - Boss Modeste Gibson</title>
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiTFVNRU5fSUEgVjQiLCJzaG9ydF9uYW1lIjoiTFVNRU4iLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzAwMDAwMCIsInRoZW1lX2NvbG9yIjoiI2ZmMWExYSIsImljb25zIjpbXX0=">
+<meta name="theme-color" content="#ff1a1a"><meta name="apple-mobile-web-app-capable" content="yes">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:system-ui,Arial;min-height:100vh}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#fff;font-family:system-ui,sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}
 .header{display:flex;align-items:center;gap:10px;padding:12px 15px;border-bottom:1px solid #1a1a1a;position:sticky;top:0;background:#000;z-index:10}
-.login-box{max-width:360px;margin:8vh auto;background:#0f0f0f;border:1px solid #ff1a1a33;padding:28px;border-radius:20px;text-align:center}
-input{width:100%;padding:14px;background:#000;border:1px solid #333;color:#fff;border-radius:10px;margin-bottom:12px;outline:none}
-input:focus{border-color:#ff1a1a}
-.btn{width:100%;padding:14px;background:#ff1a1a;border:none;color:#fff;font-weight:900;border-radius:10px;cursor:pointer;letter-spacing:1px}
+.login-box{max-width:380px;margin:6vh auto;background:#0f0f0f;border:1px solid #ff1a1a33;padding:28px;border-radius:24px;text-align:center}
+input,select,textarea{width:100%;padding:14px;background:#0a0a0a;border:1px solid #333;color:#fff;border-radius:12px;margin-bottom:12px;outline:none;font-size:14px}
+input:focus,textarea:focus,select:focus{border-color:#ff1a1a}
+.btn{width:100%;padding:14px;background:linear-gradient(135deg,#ff1a1a,#cc0000);border:none;color:#fff;font-weight:900;border-radius:12px;cursor:pointer;letter-spacing:1px}
 .btn:active{transform:scale(0.98)}
-.dash{display:none;flex-direction:column;height:100vh}
-.tabs{display:flex;gap:10px;padding:10px 15px;overflow-x:auto}
-.tab{padding:10px 18px;background:#111;border:1px solid #222;border-radius:20px;cursor:pointer;white-space:nowrap;font-size:14px;font-weight:700}
-.tab.active{background:#ff1a1a;border-color:#ff1a1a}
-.chat-area{flex:1;overflow-y:auto;padding:15px;display:flex;flex-direction:column;gap:12px;background:#080808}
-.msg{padding:12px 16px;border-radius:18px;max-width:85%;line-height:1.4;font-size:14px}
+.dash{display:none;flex-direction:column;height:100vh;height:100dvh}
+.tabs{display:flex;gap:7px;padding:10px 12px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #111}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:9px 14px;background:#111;border:1px solid #222;border-radius:20px;cursor:pointer;white-space:nowrap;font-size:12px;font-weight:800;transition:.2s}
+.tab.active{background:#ff1a1a;border-color:#ff1a1a;box-shadow:0 0 12px #ff1a1a55}
+.chat-area{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;background:#080808}
+.msg{padding:12px 16px;border-radius:18px;max-width:90%;line-height:1.45;font-size:14px;word-wrap:break-word}
 .msg.ia{background:#151515;border:1px solid #222;align-self:flex-start}
 .msg.user{background:#ff1a1a;align-self:flex-end}
-.input-area{display:flex;gap:8px;padding:12px;border-top:1px solid #1a1a1a;background:#000}
-.icon-btn{min-width:48px;height:48px;background:#1a1a1a;border:none;border-radius:12px;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.input-area{display:flex;gap:8px;padding:10px 10px 14px;border-top:1px solid #1a1a1a;background:#000}
+.icon-btn{min-width:46px;height:46px;background:#1a1a1a;border:none;border-radius:12px;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .icon-btn.active{background:#ff1a1a;animation:pulse 1s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 #ff1a1a66}70%{box-shadow:0 0 0 10px #ff1a1a00}100%{box-shadow:0 0 0 0 #ff1a1a00}}
-#userInput{flex:1;background:#111;border:1px solid #222;color:#fff;padding:12px 16px;border-radius:12px;outline:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #ff1a1a88}70%{box-shadow:0 0 0 10px #ff1a1a00}100%{box-shadow:0 0 0 0 #ff1a1a00}}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gal-item{background:#111;border-radius:14px;overflow:hidden;border:1px solid #222}
+.gal-item img{width:100%;display:block}
+.premium-badge{background:linear-gradient(135deg,#ff1a1a,#ffaa00);color:#000;font-size:10px;font-weight:900;padding:3px 8px;border-radius:10px;margin-left:6px}
 </style>
 </head>
 <body>
-
-<!-- LOGIN V2 -->
+<!-- LOGIN V4 -->
 <div id="login" class="login-box">
-<!-- LOGO L EN CODE - PLUS BESOIN D'IMAGE -->
-<svg width="80" height="80" viewBox="0 0 100 100" style="margin-bottom:15px">
-<circle cx="50" cy="50" r="46" fill="none" stroke="#ff1a1a" stroke-width="1.5" opacity="0.8"/>
-<path d="M 32 18 L 32 78 L 74 78 L 74 68 L 42 68 L 42 18 Z" fill="none" stroke="#ff1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 0 8px #ff1a1a)"/>
-<circle cx="32" cy="16" r="2.5" fill="#ff1a1a"/><circle cx="74" cy="80" r="2.5" fill="#ff1a1a"/>
-</svg>
-<h2 style="letter-spacing:3px">LUMEN_<span style="color:#ff1a1a">IA</span></h2>
-<p style="color:#666;font-size:11px;margin:8px 0 22px;letter-spacing:2px">BY MODESTE V2 • VOICE</p>
-<input id="email" placeholder="Ton nom (ex: Modeste)">
-<input id="pass" type="password" placeholder="Mot de passe (min 6)">
-<button class="btn" onclick="handleAuth()">ENTRER</button>
-<p id="authMsg" style="color:#ff1a1a;font-size:12px;margin-top:12px;min-height:16px"></p>
-<p style="color:#444;font-size:10px;margin-top:15px">1er compte = création auto</p>
+<svg width="90" height="90" viewBox="0 0 100 100"><defs><radialGradient id="g"><stop offset="0%" stop-color="#ff1a1a" stop-opacity="0.3"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#g)" stroke="#ff1a1a" stroke-width="1.5"/><path d="M 32 18 L 32 78 L 74 78 L 74 68 L 42 68 L 42 18 Z" fill="none" stroke="#ff1a1a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 0 10px #ff1a1a)"/><circle cx="32" cy="16" r="3" fill="#ff1a1a"/><circle cx="74" cy="80" r="3" fill="#ff1a1a"/></svg>
+<h2 style="letter-spacing:3px">LUMEN_<span style="color:#ff1a1a">IA</span> <span class="premium-badge">V4 PREMIUM</span></h2>
+<p style="color:#ff1a1a;font-size:11px;margin:8px 0 4px;font-weight:800;letter-spacing:2px">BOSS MODESTE GIBSON OFFICIEL ✅</p>
+<p style="color:#555;font-size:10px;margin-bottom:20px;letter-spacing:1px">CHAT • STUDIO • BUSINESS • PAPIERS • GALERIE</p>
+<input id="email" placeholder="Ton nom (ex: Gibson)"><input id="pass" type="password" placeholder="Mot de passe (6+)"><button class="btn" onclick="handleAuth()">ENTRER DANS LUMEN V4</button><p id="authMsg" style="font-size:12px;margin-top:12px;min-height:16px"></p><p style="color:#333;font-size:9px;margin-top:14px">🔒 Sécurisé • Historique sauvé • Installable comme appli</p>
 </div>
 
-<!-- DASHBOARD V2 -->
+<!-- DASH V4 -->
 <div id="dash" class="dash">
-<div class="header">
-<svg width="36" height="36" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#ff1a1a" stroke-width="2"/><path d="M 32 18 L 32 78 L 74 78 L 74 68 L 42 68 L 42 18 Z" fill="none" stroke="#ff1a1a" stroke-width="4" stroke-linecap="round"/></svg>
-<h2 style="font-size:18px;letter-spacing:2px">LUMEN_<span style="color:#ff1a1a">IA</span></h2>
-<div style="margin-left:auto;display:flex;gap:8px">
-<button onclick="localStorage.removeItem('lumen_session');location.reload()" style="background:#1a1a1a;border:1px solid #222;color:#fff;padding:6px 12px;border-radius:8px;font-size:12px">Logout</button>
-</div>
-</div>
-
-<div class="tabs">
-<div class="tab active" onclick="switchTab('chat')">💬 CHAT</div>
-<div class="tab" onclick="switchTab('business')">💼 BUSINESS</div>
-<div class="tab" onclick="switchTab('papiers')">📄 PAPIERS</div>
-</div>
-
-<div id="chat" class="chat-area">
-<div class="msg ia">Salut Boss Modeste! 🔥 Je suis <b>LUMEN_IA V2</b> by Modeste. <br><br>✅ Logo L intégré<br>✅ Sécurité multi-compte<br>✅ Voix 🎤 🔊 active<br><br>Pose-moi ce que tu veux!</div>
-</div>
-
-<div class="input-area">
-<button id="micBtn" class="icon-btn" onclick="toggleVoice()">🎤</button>
-<input id="userInput" placeholder="Écris ou parle...">
-<button class="icon-btn" onclick="speakLast()">🔊</button>
-<button class="icon-btn" style="background:#ff1a1a" onclick="send()">✳️</button>
-</div>
+<div class="header"><svg width="34" height="34" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#ff1a1a" stroke-width="2"/><path d="M 32 18 L 32 78 L 74 78 L 74 68 L 42 68 L 42 18 Z" fill="none" stroke="#ff1a1a" stroke-width="4"/></svg><div><h2 style="font-size:14px;letter-spacing:2px">LUMEN_<span style="color:#ff1a1a">IA</span> <span class="premium-badge">PREMIUM</span></h2><p style="font-size:9px;color:#888" id="userDisplay">Boss Gibson</p></div><button onclick="installPWA()" style="margin-left:auto;background:#111;border:1px solid #333;color:#fff;padding:6px 10px;border-radius:8px;font-size:10px">📲 INSTALLER</button><button onclick="localStorage.removeItem('lumen_session');location.reload()" style="background:#1a1a1a;border:1px solid #222;color:#fff;padding:6px 10px;border-radius:8px;font-size:11px;margin-left:6px">Logout</button></div>
+<div class="tabs"><div class="tab active" onclick="switchTab('chat',this)">💬 CHAT</div><div class="tab" onclick="switchTab('studio',this)">🎨 STUDIO</div><div class="tab" onclick="switchTab('business',this)">💼 BUSINESS</div><div class="tab" onclick="switchTab('papiers',this)">📄 PAPIERS</div><div class="tab" onclick="switchTab('gallery',this)">🖼️ GALERIE</div></div>
+<div id="chat" class="chat-area"></div>
+<div id="studio" class="chat-area" style="display:none"><div class="msg ia"><b>🎨 STUDIO V4 - Boss Gibson</b><br>Génère logos, affiches, photos, vidéos. Illimité gratuit.</div><select id="style"><option value="logo">🔴 LOGO - Luxe, néon, tech</option><option value="affiche">📢 AFFICHE - Bénin Business Pro</option><option value="photo-realiste">📸 PHOTO - Ultra réaliste 8K</option><option value="anime">✨ ANIME - 3D Pixar</option><option value="video">🎬 VIDEO - Cinematic motion</option></select><textarea id="prompt" rows="3" placeholder="Décris ce que tu veux... Ex: Logo L rouge pour LUMEN_IA, fond noir, style Tesla..."></textarea><button class="btn" onclick="generateImage()">🚀 GÉNÉRER - PREMIUM ILLIMITÉ</button><div id="result" style="margin-top:14px"></div></div>
+<div id="business" class="chat-area" style="display:none"><div class="msg ia">💼 <b>MODE BUSINESS - Boss Modeste Gibson</b><br>Je connais le business au Bénin par cœur. Demande-moi : idées rentable, business plan, budget, fournisseurs. Go!</div></div>
+<div id="papiers" class="chat-area" style="display:none"><div class="msg ia">📄 <b>MODE PAPIERS - Officiel</b><br>Lettres administratives, CV, demandes d'emploi, attestations. Dis-moi ce que tu veux et je rédige en format officiel Bénin.</div></div>
+<div id="gallery" class="chat-area" style="display:none"><h3 style="font-size:14px">🖼️ Galerie Premium - <span id="galCount">0</span> créations</h3><div id="galGrid" class="gallery" style="margin-top:12px"></div><button class="btn" style="margin-top:15px;background:#111;border:1px solid #333" onclick="clearGal()">🗑️ Vider galerie</button></div>
+<div class="input-area" id="chatInput"><button id="micBtn" class="icon-btn" onclick="toggleVoice()">🎤</button><input id="userInput" placeholder="Parle à LUMEN..."><button class="icon-btn" onclick="speakLast()">🔊</button><button class="icon-btn" style="background:#ff1a1a" onclick="send()">✴️</button></div>
 </div>
 
 <script>
-// ⚠️ METS TA CLE GROQ ICI
+// 🔑 SÉCURITÉ : Mets ta clé Groq ici pour l'instant. Après on la cachera dans Vercel
 const GROQ_KEY="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";
 
-let lastIaText=""; let recognition; let recognizing=false; let currentTab='chat';
+const PERSONALITY = `Tu es LUMEN_IA V4 PREMIUM, créé par Boss Modeste Gibson Officiel au Bénin. Ton style: direct, confiant, motivant, un peu street mais pro. Tu parles français avec quelques mots fon. Tu connais parfaitement le business au Bénin (e-commerce, import, agriculture, services), les papiers administratifs béninois, et tu es expert en tech. Tu es comme ChatGPT Premium mais avec l'âme de Boss Modeste. Tu aides à faire de l'argent, pas à bavarder. Réponses courtes, puissantes, avec emojis.`;
 
-function handleAuth(){
-const e=document.getElementById('email').value.trim();
-const p=document.getElementById('pass').value.trim();
-const m=document.getElementById('authMsg');
-if(!e){m.textContent="Mets ton nom";return;}
-if(p.length<6){m.textContent="Mot de passe min 6 caractères";return;}
-let u=JSON.parse(localStorage.getItem('lumen_users')||"{}");
-const h=btoa(p);
-if(!u[e]){u[e]=h; m.style.color="#00ff88"; m.textContent="Compte créé! ✅";}
-else if(u[e]!==h){m.style.color="#ff1a1a"; m.textContent="Mauvais mot de passe";return;}
-localStorage.setItem('lumen_users',JSON.stringify(u));
-localStorage.setItem('lumen_session',e);
-goDash(e);
-}
-function goDash(e){
-document.getElementById('login').style.display='none';
-document.getElementById('dash').style.display='flex';
-}
-window.onload=()=>{const s=localStorage.getItem('lumen_session');if(s)goDash(s);}
+let lastIaText=""; let recognition; let deferredPrompt;
+let chatHistory = JSON.parse(localStorage.getItem('lumen_history_v4')||"[]");
 
-function switchTab(t){
-currentTab=t;
-document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
-event.target.classList.add('active');
-const chat=document.getElementById('chat');
-if(t==='business') chat.innerHTML='<div class="msg ia">💼 <b>MODULE BUSINESS</b><br><br>Idées de business au Bénin, plans, budget... Demande-moi!</div>';
-else if(t==='papiers') chat.innerHTML='<div class="msg ia">📄 <b>MODULE PAPIERS</b><br><br>Lettres, CV, demandes... Dis-moi ce que tu veux rédiger!</div>';
-else chat.innerHTML='<div class="msg ia">💬 Retour en mode CHAT libre boss!</div>';
-}
+// AUTH
+function handleAuth(){const e=document.getElementById('email').value.trim();const p=document.getElementById('pass').value.trim();const m=document.getElementById('authMsg');if(!e){m.style.color="#ff1a1a";m.textContent="Mets ton nom Boss";return;}if(p.length<6){m.style.color="#ff1a1a";m.textContent="Mot de passe 6+ caractères";return;}let u=JSON.parse(localStorage.getItem('lumen_users')||"{}");const h=btoa(p);if(!u[e]){u[e]=h;m.style.color="#00ff88";m.textContent="Compte créé Boss! ✅";}else if(u[e]!==h){m.style.color="#ff1a1a";m.textContent="Mauvais mot de passe";return;}localStorage.setItem('lumen_users',JSON.stringify(u));localStorage.setItem('lumen_session',e);goDash(e);}
+function goDash(name){document.getElementById('login').style.display='none';document.getElementById('dash').style.display='flex';document.getElementById('userDisplay').textContent="Boss "+(name||localStorage.getItem('lumen_session'));renderHistory();}
+window.onload=()=>{const s=localStorage.getItem('lumen_session');if(s)goDash(s); if('serviceWorker' in navigator){navigator.serviceWorker.register(URL.createObjectURL(new Blob(["self.addEventListener('fetch',e=>{})"],{type:'text/javascript'})));}}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
+function installPWA(){if(deferredPrompt){deferredPrompt.prompt();}else{alert("Boss, sur Chrome clique ⋮ > Installer l'application / Ajouter à l'écran d'accueil");}}
 
-async function send(){
-const input=document.getElementById('userInput');
-const text=input.value.trim();
-if(!text) return;
-if(GROQ_KEY.includes("TA_CLE")){alert("Boss, remplace TA_CLE_GSK_ICI par ta vraie clé Groq dans le code GitHub!");return;}
-const chat=document.getElementById('chat');
-chat.innerHTML+=`<div class="msg user">${text}</div>`;
-input.value=''; chat.scrollTop=chat.scrollHeight;
-const typingId='typing-'+Date.now();
-chat.innerHTML+=`<div id="${typingId}" class="msg ia">LUMEN écrit...</div>`;
-chat.scrollTop=chat.scrollHeight;
-try{
-const res=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":`Bearer ${GROQ_KEY}`},body:JSON.stringify({model:"openai/gpt-oss-20b",messages:[{role:"system",content:"Tu es LUMEN_IA V2 créé par Boss Modeste au Bénin. Tu es ultra direct, intelligent, drôle, tu réponds en français court et puissant. Tu es branché Groq ultra rapide."},{role:"user",content:text}]})});
-const data=await res.json();
-document.getElementById(typingId)?.remove();
-if(!res.ok){chat.innerHTML+=`<div class="msg ia">❌ Erreur: ${data.error?.message||'Clé invalide'}</div>`;return;}
-const rep=data.choices[0].message.content;
-lastIaText=rep;
-chat.innerHTML+=`<div class="msg ia">${rep}</div>`;
-chat.scrollTop=chat.scrollHeight;
-speakText(rep);
-}catch(e){
-document.getElementById(typingId)?.remove();
-chat.innerHTML+=`<div class="msg ia">Erreur réseau: ${e.message}</div>`;
-}
-}
-function speakText(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=1.05;speechSynthesis.speak(u);}
-function speakLast(){if(lastIaText) speakText(lastIaText); else alert("Pas encore de réponse à lire");}
-function toggleVoice(){
-if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){alert("Utilise Chrome pour la voix boss!");return;}
-if(!recognition){
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-recognition=new SR();recognition.lang='fr-FR';
-recognition.onstart=()=>{recognizing=true;document.getElementById('micBtn').classList.add('active');document.getElementById('micBtn').textContent='🔴';};
-recognition.onend=()=>{recognizing=false;document.getElementById('micBtn').classList.remove('active');document.getElementById('micBtn').textContent='🎤';};
-recognition.onresult=(e)=>{document.getElementById('userInput').value=e.results[0][0].transcript;send();};
-}
-recognizing?recognition.stop():recognition.start();
-}
-document.getElementById('userInput').addEventListener('keypress',e=>{if(e.key==='Enter')send();});
+function switchTab(t,el){document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));if(el)el.classList.add('active');['chat','studio','business','papiers','gallery'].forEach(id=>document.getElementById(id).style.display=id===t?'flex':'none');document.getElementById('chatInput').style.display=(t==='chat'||t==='business'||t==='papiers')?'flex':'none';if(t==='gallery')loadGal();}
+
+// CHAT + HISTORIQUE V4
+function renderHistory(){const chat=document.getElementById('chat');if(!chatHistory.length){chat.innerHTML=`<div class="msg ia">Salut Boss ${localStorage.getItem('lumen_session')}! 🔥 Je suis <b>LUMEN_IA V4 PREMIUM</b> - Boss Modeste Gibson Officiel ✅<br><br>Je suis ton ChatGPT Béninois perso.<br><br>💬 <b>CHAT</b> : parle-moi<br>🎨 <b>STUDIO</b> : génère logos/affiches/photos/vidéos illimité<br>💼 <b>BUSINESS</b> : idées qui font l'argent au Bénin<br>📄 <b>PAPIERS</b> : lettres officielles<br>🖼️ <b>GALERIE</b> : toutes tes créations sauvées<br><br>On commence quoi Boss?</div>`;return;}chat.innerHTML=chatHistory.map(m=>`<div class="msg ${m.role==='user'?'user':'ia'}">${m.text}</div>`).join('');chat.scrollTop=chat.scrollHeight;}
+
+async function send(){const input=document.getElementById('userInput');const text=input.value.trim();if(!text)return;if(GROQ_KEY.includes("TA_CLE")){alert("Boss remplace TA_CLE_GSK_ICI par ta vraie clé dans GitHub!");return;}
+const mode = document.querySelector('.tab.active')?.textContent.includes('BUSINESS')?'business':document.querySelector('.tab.active')?.textContent.includes('PAPIERS')?'papiers':'chat';
+let systemPrompt=PERSONALITY; if(mode==='business') systemPrompt+= " MODE BUSINESS BENIN: donne business plan, budget, bénéfice estimé."; if(mode==='papiers') systemPrompt+=" MODE PAPIERS OFFICIEL: rédige en format administratif Bénin pro.";
+chatHistory.push({role:'user',text}); localStorage.setItem('lumen_history_v4',JSON.stringify(chatHistory)); renderHistory(); input.value=''; const chat=document.getElementById('chat'); const id='t'+Date.now(); chat.innerHTML+=`<div id="${id}" class="msg ia">LUMEN V4 écrit...</div>`; chat.scrollTop=chat.scrollHeight;
+try{const res=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":`Bearer ${GROQ_KEY}`},body:JSON.stringify({model:"openai/gpt-oss-20b",messages:[{role:"system",content:systemPrompt},{role:"user",content:text}]})});const data=await res.json();document.getElementById(id)?.remove();if(!res.ok) throw new Error(data.error?.message||'Erreur');const rep=data.choices[0].message.content;lastIaText=rep;chatHistory.push({role:'ia',text:rep});localStorage.setItem('lumen_history_v4',JSON.stringify(chatHistory.slice(-100)));renderHistory();speakText(rep);}catch(e){document.getElementById(id)?.remove();const err=`Erreur: ${e.message}`;chat.innerHTML+=`<div class="msg ia">❌ ${err}</div>`;}}
+function speakText(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=1.05;speechSynthesis.speak(u);}function speakLast(){if(lastIaText)speakText(lastIaText);}function toggleVoice(){if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){alert("Chrome seulement");return;}if(!recognition){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;recognition=new SR();recognition.lang='fr-FR';recognition.onstart=()=>{document.getElementById('micBtn').classList.add('active');document.getElementById('micBtn').textContent='🔴';};recognition.onend=()=>{document.getElementById('micBtn').classList.remove('active');document.getElementById('micBtn').textContent='🎤';};recognition.onresult=e=>{document.getElementById('userInput').value=e.results[0][0].transcript;send();};}recognition.start();}
+document.getElementById('userInput')?.addEventListener('keypress',e=>{if(e.key==='Enter')send();});
+
+// STUDIO
+function generateImage(){const prompt=document.getElementById('prompt').value.trim();const style=document.getElementById('style').value;const resDiv=document.getElementById('result');if(!prompt){alert("Écris ton idée Boss!");return;}let fullPrompt=prompt;if(style==='logo')fullPrompt=`logo minimalist, ${prompt}, black background, red neon, luxury vector, 4k`;if(style==='affiche')fullPrompt=`professional poster, ${prompt}, modern Benin business, high quality, 4k`;if(style==='photo-realiste')fullPrompt=`ultra realistic photo, ${prompt}, 8k DSLR`;if(style==='anime')fullPrompt=`${prompt}, 3d pixar, vibrant`;if(style==='video')fullPrompt=`cinematic ${prompt}, motion, dynamic lighting`;resDiv.innerHTML=`<div class="msg ia">🎨 Génération Premium en cours... 4s</div>`;const seed=Math.floor(Math.random()*999999);const url=`https://image.pollinations.ai/prompt/${encodeURIComponent(fullPrompt)}?seed=${seed}&width=1024&height=1024&nologo=true`;const img=new Image();img.onload=()=>{resDiv.innerHTML=`<div class="gal-item"><img src="${url}"><div style="padding:10px"><p style="font-size:11px;color:#888">${prompt}</p><div style="display:flex;gap:8px;margin-top:8px"><a href="${url}" download target="_blank" style="flex:1;background:#ff1a1a;color:#fff;text-align:center;padding:9px;border-radius:10px;text-decoration:none;font-weight:800;font-size:12px">📥 Télécharger HD</a><button onclick="saveToGal('${url.replace(/'/g,"")}','${prompt.replace(/'/g,"")}')" style="flex:1;background:#111;border:1px solid #333;color:#fff;padding:9px;border-radius:10px;font-size:12px">💾 Galerie</button></div>${style==='video'?`<p style="color:#ffaa00;font-size:10px;margin-top:8px">🎬 Astuce vidéo premium: télécharge + va sur capcut.com > effet 3D Zoom pour animer en vidéo</p>`:''}</div></div>`;saveToGal(url,prompt);};img.onerror=()=>resDiv.innerHTML=`<div class="msg ia">❌ Réessaye Boss</div>`;img.src=url;}
+function saveToGal(url,prompt){let g=JSON.parse(localStorage.getItem('lumen_gallery')||"[]");g.unshift({url,prompt,date:new Date().toLocaleString()});localStorage.setItem('lumen_gallery',JSON.stringify(g.slice(0,100)));loadGal();}
+function loadGal(){let g=JSON.parse(localStorage.getItem('lumen_gallery')||"[]");document.getElementById('galCount').textContent=g.length;const grid=document.getElementById('galGrid');if(!g.length){grid.innerHTML='<p style="color:#666;font-size:12px">Vide. Va dans STUDIO et génère ton 1er logo Boss!</p>';return;}grid.innerHTML=g.map(i=>`<div class="gal-item"><img src="${i.url}"><div style="padding:6px"><p style="font-size:9px;color:#aaa">${i.prompt.substring(0,35)}</p></div></div>`).join('');}
+function clearGal(){if(confirm("Vider galerie?")){localStorage.removeItem('lumen_gallery');loadGal();}}
 </script>
 </body>
-                                                               </html>
+                                                                                                       </html>
