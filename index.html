@@ -74,14 +74,13 @@ async function send(){
  chat.innerHTML += `<div class="msg user">${text}</div>`;
  input.value = '';
  chat.scrollTop = chat.scrollHeight;
- chat.innerHTML += `<div id="typing" class="msg ia">LUMEN_IA écrit...</div>`;
-model:"openai/gpt-oss-20b",
+ chat.innerHTML += `<div id="typing" class="msg ia">LUMEN_IA écrit...</div>`; 
  try{
   const res = await fetch("https://api.groq.com/openai/v1/chat/completions",{
    method:"POST",
    headers:{"Content-Type":"application/json","Authorization":`Bearer ${GROQ_KEY}`},
    body: JSON.stringify({
-    model:"llama-3.3-70b-versatile",
+    model:"openai/gpt-oss-20b",
     messages:[
      {role:"system", content:"Tu es LUMEN_IA, IA personnelle de Boss Modeste. Tu réponds court, direct, style boss, en français."},
      {role:"user", content:text}
